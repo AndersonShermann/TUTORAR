@@ -1,5 +1,7 @@
 package com.tutorar.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +17,18 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+    
+	@GetMapping("/listar")
+	public ModelAndView listar() {
+		ModelAndView modelAndView = new ModelAndView("usuario/listar.html");
+ 
+		List<Usuario> usuarios = usuarioRepository.findAll();
+		modelAndView.addObject("usuario", usuarios);
+ 
+		return modelAndView;
+	}
+	
+	
 
     @GetMapping()
     public ModelAndView home() {
@@ -47,14 +61,14 @@ public class UsuarioController {
     public String salvar(Usuario usuario) {
 
         usuarioRepository.save(usuario);
-        return "redirect:/home";
+        return "redirect:/listar";
     }
 
     @GetMapping("/{id}/excluir")
     public String excluir(@PathVariable Long id) {
         usuarioRepository.deleteById(id);
 
-        return "redirect:/usuarios";
+        return "redirect:/listar";
     }
     
 	@GetMapping("/{id}/perfil")
