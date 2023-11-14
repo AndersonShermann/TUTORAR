@@ -30,14 +30,14 @@ public class UsuarioController {
 	
 	
 
-    @GetMapping()
-    public ModelAndView home() {
-        ModelAndView modelAndView = new ModelAndView("usuario/perfil");
-
-        modelAndView.addObject("usuarios", usuarioRepository.findAll());
-
-        return modelAndView;
-    }
+//    @GetMapping()
+//    public ModelAndView home() {
+//        ModelAndView modelAndView = new ModelAndView("usuario/perfil");
+//
+//        modelAndView.addObject("usuarios", usuarioRepository.findAll());
+//
+//        return modelAndView;
+//    }
 
     @GetMapping("/cadastrar")
     public ModelAndView cadastrar() {
@@ -50,7 +50,7 @@ public class UsuarioController {
 
     @GetMapping("/{id}/editar")
     public ModelAndView editar(@PathVariable Long id) {
-        ModelAndView modelAndView = new ModelAndView("usuario/formulario");
+        ModelAndView modelAndView = new ModelAndView("usuario/editar");
 
         modelAndView.addObject("usuario", usuarioRepository.getReferenceById(id));
 
