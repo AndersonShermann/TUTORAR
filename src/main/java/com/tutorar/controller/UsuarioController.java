@@ -16,9 +16,9 @@ public class UsuarioController {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    @GetMapping
+    @GetMapping()
     public ModelAndView home() {
-        ModelAndView modelAndView = new ModelAndView("usuario/home");
+        ModelAndView modelAndView = new ModelAndView("usuario/perfil");
 
         modelAndView.addObject("usuarios", usuarioRepository.findAll());
 
@@ -45,9 +45,9 @@ public class UsuarioController {
 
     @PostMapping({"/cadastrar", "/{id}/editar"})
     public String salvar(Usuario usuario) {
-        usuarioRepository.save(usuario);
 
-        return "redirect:/usuarios";
+        usuarioRepository.save(usuario);
+        return "redirect:/home";
     }
 
     @GetMapping("/{id}/excluir")
@@ -56,4 +56,14 @@ public class UsuarioController {
 
         return "redirect:/usuarios";
     }
+    
+	@GetMapping("/{id}/perfil")
+	public ModelAndView perfil(@PathVariable Long id) {
+		ModelAndView modelAndView = new ModelAndView("usuario/perfil");
+ 
+		Usuario usuario = usuarioRepository.getReferenceById(id);
+		modelAndView.addObject("usuario", usuario);
+ 
+		return modelAndView;
+	}
 }
