@@ -1,6 +1,7 @@
 package com.tutorar.model;
 
 import java.sql.Time;
+import java.time.format.DateTimeFormatter;
 import java.sql.Date;
 
 import jakarta.persistence.Column;
@@ -41,7 +42,7 @@ public class Aula {
 	@Column
 	private String plataforma;
 	
-	//construtor
+	//construtors
 	
 	public Aula( int id, Time hr_aula, float vl_aula, Date dt_aula, String nome_disciplina, 
 String categoria, String descricao, String tipo_aula, String plataforma) {
@@ -55,6 +56,10 @@ String categoria, String descricao, String tipo_aula, String plataforma) {
 		this.descricao = descricao;
 		this.tipo_aula = tipo_aula;
 		this.plataforma = plataforma;
+	}
+	
+	public Aula() {
+		
 	}
 	
 	//getters e setters
@@ -137,9 +142,6 @@ String categoria, String descricao, String tipo_aula, String plataforma) {
 				+ ", nome_disciplina=" + nome_disciplina + ", categoria=" + categoria + ", descricao=" + descricao
 				+ ", tipo_aula=" + tipo_aula + ", plataforma=" + plataforma + "]";
 	}
-
-	
-	
 	
 	
 }
