@@ -9,13 +9,13 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
  
-	<title>Cadastrar Novo Usuario</title>
+	<title>Cadastrar Nova Aula</title>
 </head>
  
 <body>
 	<nav class="navbar navbar-light bg-light">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#">Clientes</a>
+			<a class="navbar-brand" href="/listarAulas">Voltar</a>
 		</div>
 	</nav>
  
@@ -43,7 +43,7 @@
 					</div>
 					<div class="mb-3">
 						<label for="nome" class="form-label">Hora aula</label>
-						<input type="datetime" class="form-control" id="hr_aula" th:field="*{hr_aula}" placeholder="hh:mm:ss">
+						<input type="time" class="form-control" id="hr_aula" th:field="*{hr_aula}" placeholder="hh:mm:ss">
 					</div>
 					<div class="mb-3">
 						<label for="cpf" class="form-label">Nome Disciplina</label>

@@ -19,7 +19,7 @@ public class Aula {
 	private int id;
 	
 	@Column(nullable = false)
-	private Time hr_aula;
+	private String hr_aula;
 	
 	@Column
 	private float vl_aula;
@@ -44,7 +44,7 @@ public class Aula {
 	
 	//construtors
 	
-	public Aula( int id, Time hr_aula, float vl_aula, Date dt_aula, String nome_disciplina, 
+	public Aula( int id, String hr_aula, float vl_aula, Date dt_aula, String nome_disciplina, 
 String categoria, String descricao, String tipo_aula, String plataforma) {
 		super();
 		this.id = id;
@@ -72,11 +72,11 @@ String categoria, String descricao, String tipo_aula, String plataforma) {
 		this.id = id;
 	}
 
-	public Time getHr_aula() {
+	public String getHr_aula() {
 		return hr_aula;
 	}
 
-	public void setHr_aula(Time hr_aula) {
+	public void setHr_aula(String hr_aula) {
 		this.hr_aula = hr_aula;
 	}
 
