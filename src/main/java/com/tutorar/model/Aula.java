@@ -2,10 +2,17 @@ package com.tutorar.model;
 
 import java.sql.Time;
 import java.time.format.DateTimeFormatter;
+
+import com.tutorar.enums.Categoria_aula;
+import com.tutorar.enums.Plataforma_aula;
+import com.tutorar.enums.Tipo_aula;
+
 import java.sql.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -31,21 +38,24 @@ public class Aula {
 	private String nome_disciplina;
 	
 	@Column(nullable = false)
-	private String categoria;
+	@Enumerated(EnumType.STRING)
+	private Categoria_aula categoria;
 	
 	@Column
 	private String descricao;
 	
 	@Column(nullable = false)
-	private String tipo_aula;
+	@Enumerated(EnumType.STRING)
+	private Tipo_aula tipo_aula;
 	
 	@Column
-	private String plataforma;
+	@Enumerated(EnumType.STRING)
+	private Plataforma_aula plataforma;
 	
 	//construtors
 	
 	public Aula( int id, String hr_aula, float vl_aula, Date dt_aula, String nome_disciplina, 
-String categoria, String descricao, String tipo_aula, String plataforma) {
+Categoria_aula categoria, String descricao, Tipo_aula tipo_aula, Plataforma_aula plataforma) {
 		super();
 		this.id = id;
 		this.hr_aula = hr_aula;
@@ -104,11 +114,11 @@ String categoria, String descricao, String tipo_aula, String plataforma) {
 		this.nome_disciplina = nome_disciplina;
 	}
 
-	public String getCategoria() {
+	public Categoria_aula getCategoria() {
 		return categoria;
 	}
 
-	public void setCategoria(String categoria) {
+	public void setCategoria(Categoria_aula categoria) {
 		this.categoria = categoria;
 	}
 
@@ -120,19 +130,19 @@ String categoria, String descricao, String tipo_aula, String plataforma) {
 		this.descricao = descricao;
 	}
 
-	public String getTipo_aula() {
+	public Tipo_aula getTipo_aula() {
 		return tipo_aula;
 	}
 
-	public void setTipo_aula(String tipo_aula) {
+	public void setTipo_aula(Tipo_aula tipo_aula) {
 		this.tipo_aula = tipo_aula;
 	}
 
-	public String getPlataforma() {
+	public Plataforma_aula getPlataforma() {
 		return plataforma;
 	}
 
-	public void setPlataforma(String plataforma) {
+	public void setPlataforma(Plataforma_aula plataforma) {
 		this.plataforma = plataforma;
 	}
 

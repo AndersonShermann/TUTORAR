@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.tutorar.enums.Categoria_aula;
+import com.tutorar.enums.Plataforma_aula;
+import com.tutorar.enums.Tipo_aula;
 import com.tutorar.model.Aula;
 import com.tutorar.repository.AulaRepository;
 
@@ -48,6 +51,9 @@ public class AulaController {
 		
 		//objeto Aula vazio via constructor
 		modelAndView.addObject("aula", new Aula());
+		modelAndView.addObject("cat",Categoria_aula.values());
+		modelAndView.addObject("tAula",Tipo_aula.values());
+		modelAndView.addObject("plat",Plataforma_aula.values());
 		return modelAndView;
 	}
 	
@@ -64,6 +70,9 @@ public class AulaController {
 		ModelAndView modelAndView = new ModelAndView("aulas/editar.html");
 		Aula aula = aulaRepository.getReferenceById(id);
 		modelAndView.addObject("aula", aula);
+		modelAndView.addObject("cat",Categoria_aula.values());
+		modelAndView.addObject("tAula",Tipo_aula.values());
+		modelAndView.addObject("plat",Plataforma_aula.values());
 		return modelAndView;
 	}
 	
