@@ -95,10 +95,10 @@
 								<strong><i class="fas fa-map-marker-alt mr-1"></i> Senha</strong>
 								<p class="text-muted" th:text="${usuario.senha}">*</p>
 
-								<a th:href="@{/{id}/editar (id=${usuario.id})}" class="btn btn-warning">
+								<a th:href="@{/{id}/editar-usuario (id=${usuario.id})}" class="btn btn-warning">
 									Editar
 								</a>
-								<a th:href="@{/{id}/excluir (id=${usuario.id})}" class="btn btn-danger"
+								<a th:href="@{/{id}/excluir-usuario (id=${usuario.id})}" class="btn btn-danger"
 									onclick="return confirm('Tem certeza que deseja excluir o usuário?');">
 									Excluir
 								</a>

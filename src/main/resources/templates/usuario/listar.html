@@ -52,7 +52,7 @@
 						<tr th:each="usuario : ${usuario}">
 							<th scope="row" th:text="${usuario.id}"></th>
 							<td>
-								<a th:text="${usuario.nome}" th:href="@{/{id}/perfil (id=${usuario.id})}"></a>
+								<a th:text="${usuario.nome}" th:href="@{/{id}/perfil-usuario (id=${usuario.id})}"></a>
 							</td>
 							<td th:text="${usuario.cpf}"></td>
 							<td th:text="${usuario.dtNasc}"></td>
@@ -67,10 +67,10 @@
 							<td th:text="${usuario.telefone}"></td>
 							<td th:text="${usuario.senha}"></td>
 							<td>
-								<a th:href="@{/{id}/editar (id=${usuario.id})}" class="btn btn-warning">
+								<a th:href="@{/{id}/editar-usuario (id=${usuario.id})}" class="btn btn-warning">
 									Editar
 								</a>
-								<a th:href="@{/{id}/excluir (id=${usuario.id})}" class="btn btn-danger"
+								<a th:href="@{/{id}/excluir-usuario (id=${usuario.id})}" class="btn btn-danger"
 									onclick="return confirm('Tem certeza que deseja excluir o usuário?');">
 									Excluir
 								</a>
@@ -83,7 +83,7 @@
 
 		<div class="row">
 			<div class="col-sm-12">
-				<a th:href="@{/cadastrar}" class="btn btn-primary">Cadastrar novo Usuario</a>
+				<a th:href="@{/cadastrar-usuario}" class="btn btn-primary">Cadastrar novo Usuario</a>
 			</div>
 		</div>
 	</main>
