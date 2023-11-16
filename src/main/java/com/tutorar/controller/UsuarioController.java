@@ -18,7 +18,7 @@ public class UsuarioController {
     @Autowired
     private UsuarioRepository usuarioRepository;
     
-	@GetMapping("/listar")
+	@GetMapping("/listar-usuario")
 	public ModelAndView listar() {
 		ModelAndView modelAndView = new ModelAndView("usuario/listar.html");
  
@@ -39,7 +39,7 @@ public class UsuarioController {
 //        return modelAndView;
 //    }
 
-    @GetMapping("/cadastrar")
+    @GetMapping("/cadastrar-usuario")
     public ModelAndView cadastrar() {
         ModelAndView modelAndView = new ModelAndView("usuario/cadastro");
 
@@ -48,7 +48,7 @@ public class UsuarioController {
         return modelAndView;
     }
 
-    @GetMapping("/{id}/editar")
+    @GetMapping("/{id}/editar-usuario")
     public ModelAndView editar(@PathVariable Long id) {
         ModelAndView modelAndView = new ModelAndView("usuario/editar");
 
@@ -57,21 +57,21 @@ public class UsuarioController {
         return modelAndView;
     }
 
-    @PostMapping({"/cadastrar", "/{id}/editar"})
+    @PostMapping({"/cadastrar-usuario", "/{id}/editar-usuario"})
     public String salvar(Usuario usuario) {
 
         usuarioRepository.save(usuario);
-        return "redirect:/listar";
+        return "redirect:/listar-usuario";
     }
 
-    @GetMapping("/{id}/excluir")
+    @GetMapping("/{id}/excluir-usuario")
     public String excluir(@PathVariable Long id) {
         usuarioRepository.deleteById(id);
 
         return "redirect:/listar";
     }
     
-	@GetMapping("/{id}/perfil")
+	@GetMapping("/{id}/perfil-usuario")
 	public ModelAndView perfil(@PathVariable Long id) {
 		ModelAndView modelAndView = new ModelAndView("usuario/perfil");
  

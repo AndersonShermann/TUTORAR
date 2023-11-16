@@ -2,6 +2,9 @@ package com.tutorar.model;
 
 import java.sql.Time;
 import java.time.format.DateTimeFormatter;
+
+import org.hibernate.annotations.ManyToAny;
+
 import java.sql.Date;
 
 import jakarta.persistence.Column;
@@ -41,6 +44,7 @@ public class Aula {
 	
 	@Column
 	private String plataforma;
+
 	
 	//construtors
 	
