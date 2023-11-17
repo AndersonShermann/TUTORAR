@@ -1,17 +1,16 @@
 package com.tutorar.model;
 
-import java.sql.Time;
-import java.time.format.DateTimeFormatter;
-
-import org.hibernate.annotations.ManyToAny;
-
 import java.sql.Date;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -45,9 +44,17 @@ public class Aula {
 	@Column
 	private String plataforma;
 
+	@OneToMany
+    @JoinColumn(name="aula_id")
+	private List<Usuario> usuario;
+	
+	@ManyToOne
+	@JoinColumn(name="professor_id")
+	private Professor professor;
+
 	
 	//construtors
-	
+
 	public Aula( int id, String hr_aula, float vl_aula, Date dt_aula, String nome_disciplina, 
 String categoria, String descricao, String tipo_aula, String plataforma) {
 		super();
@@ -138,6 +145,14 @@ String categoria, String descricao, String tipo_aula, String plataforma) {
 
 	public void setPlataforma(String plataforma) {
 		this.plataforma = plataforma;
+	}
+	
+	public List<Usuario> getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(List<Usuario> usuario) {
+		this.usuario = usuario;
 	}
 
 	@Override
