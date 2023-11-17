@@ -7,3 +7,7 @@
     padding: 0 ;
     box-sizing: border-box ;
 }
+
+.bg-laranja {
+    background-color: rgb(211, 86, 55);
+}
