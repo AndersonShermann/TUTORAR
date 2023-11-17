@@ -1,6 +1,7 @@
 package com.tutorar.model;
 
 import java.sql.Date;
+import java.util.List;
 
 import com.tutorar.enums.UF;
 
@@ -11,6 +12,9 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -61,9 +65,16 @@ public class Usuario {
     
     @Column
     private String complemento;
-
     
-    //Construtor
+    @OneToMany
+    @JoinColumn(name="usuario_id")
+    private List<Aula> aula;
+
+    @OneToOne
+	@JoinColumn(unique=true)
+    private Professor professor;
+    
+	//Construtor
 	public Usuario() {
 
 	}
@@ -218,14 +229,25 @@ public class Usuario {
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
+	
+	
+	public List<Aula> getAula() {
+		return aula;
+	}
+
+	public void setAula(List<Aula> aula) {
+		this.aula = aula;
+	}
 
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email + ", cpf=" + cpf + ", dtNasc=" + dtNasc
 				+ ", senha=" + senha + ", telefone=" + telefone + ", endereco=" + endereco + ", cep=" + cep + ", uf="
 				+ uf + ", cidade=" + cidade + ", bairro=" + bairro + ", numero=" + numero + ", complemento="
-				+ complemento + "]";
+				+ complemento + ", aula=" + aula + "]";
 	}
+
+
 	
 	
 	
