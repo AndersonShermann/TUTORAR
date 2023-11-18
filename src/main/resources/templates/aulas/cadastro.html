@@ -31,7 +31,9 @@
 				<form action="/cadastrarAulas" method="post" th:object="${aula}" enctype="multipart/form-data">
 					<div class="mb-3">
 						<label for="nome" class="form-label">Categoria</label>
-						<input type="text" class="form-control" id="nome" th:field="*{categoria}" placeholder="Nome Completo">
+						<select class="form-control" th:field=${aula.categoria}>
+							<option th:each="cat: ${cat}" th:text=${cat.getCategoria()} th:value="${cat}"></option>
+						</select>
 					</div>
 					<div class="mb-3">
 						<label for="cpf" class="form-label">Descrição</label>
@@ -51,11 +53,15 @@
 					</div>
 					<div class="mb-3">
 						<label for="senha" class="form-label">Plataforma</label>
-						<input type="text" class="form-control" id="senha" th:field="*{plataforma}" placeholder="*************">
+						<select class="form-control" th:field=${aula.plataforma}>
+							<option th:each="plat: ${plat}" th:text=${plat.getPlatAula()} th:value="${plat}"></option>
+						</select>
 					</div>
 					<div class="mb-3">
 						<label for="nome" class="form-label">Tipo de Aula</label>
-						<input type="text" class="form-control" id="nome" th:field="*{tipo_aula}" placeholder="Nome Completo">
+						<select class="form-control" th:field=${aula.tipo_aula}>
+							<option th:each="tAula: ${tAula}" th:text=${tAula.getTpAula()} th:value="${tAula}"></option>
+						</select>
 					</div>
 					<div class="mb-3">
 						<label for="cpf" class="form-label">Valor da Aula</label>

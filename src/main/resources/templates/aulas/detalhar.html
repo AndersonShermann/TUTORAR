@@ -29,7 +29,7 @@
           <h5 class="card-header" th:text="${aula.nome_disciplina}"></h5>
           <div class="card-body">
             <p>
-              Categoria: <span th:text="${aula.categoria}"></span>
+              Categoria: <span th:text="${aula.categoria.getCategoria()}"></span>
             </p>
             <p>
               Descrição: <span th:text="${aula.descricao}"></span>
@@ -41,10 +41,10 @@
               Hora da aula: <span th:text="${aula.hr_aula}"></span>
             </p>
             <p>
-              Plataforma: <span th:text="${aula.plataforma}"></span>
+              Plataforma: <span th:text="${aula.plataforma.getPlatAula()}"></span>
             </p>
             <p>
-              Tipo de Aula: <span th:text="${aula.tipo_aula}"></span>
+              Tipo de Aula: <span th:text="${aula.tipo_aula.getTpAula()}"></span>
             </p>
  			<p>
               Valor da Aula: <span th:text="${aula.vl_aula}"></span>
