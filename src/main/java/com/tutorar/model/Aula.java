@@ -1,13 +1,13 @@
 package com.tutorar.model;
 
+
 import java.sql.Time;
 import java.time.format.DateTimeFormatter;
-
 import com.tutorar.enums.Categoria_aula;
 import com.tutorar.enums.Plataforma_aula;
 import com.tutorar.enums.Tipo_aula;
-
 import java.sql.Date;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,6 +16,9 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -51,9 +54,18 @@ public class Aula {
 	@Column
 	@Enumerated(EnumType.STRING)
 	private Plataforma_aula plataforma;
+
+	@OneToMany
+    @JoinColumn(name="aula_id")
+	private List<Usuario> usuario;
+	
+	@ManyToOne
+	@JoinColumn(name="professor_id")
+	private Professor professor;
+
 	
 	//construtors
-	
+
 	public Aula( int id, String hr_aula, float vl_aula, Date dt_aula, String nome_disciplina, 
 Categoria_aula categoria, String descricao, Tipo_aula tipo_aula, Plataforma_aula plataforma) {
 		super();
@@ -144,6 +156,14 @@ Categoria_aula categoria, String descricao, Tipo_aula tipo_aula, Plataforma_aula
 
 	public void setPlataforma(Plataforma_aula plataforma) {
 		this.plataforma = plataforma;
+	}
+	
+	public List<Usuario> getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(List<Usuario> usuario) {
+		this.usuario = usuario;
 	}
 
 	@Override
