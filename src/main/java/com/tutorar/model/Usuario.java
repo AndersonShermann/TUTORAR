@@ -80,7 +80,8 @@ public class Usuario {
 	}
 	
 	public Usuario(String nome, String email, String cpf, Date dtNasc, String senha, String telefone,
-			String endereco, String cep, UF uf, String cidade, String bairro, int numero, String complemento) {
+			String endereco, String cep, UF uf, String cidade, String bairro, int numero, String complemento,
+			List<Aula> aula, Professor professor) {
 		super();
 		this.nome = nome;
 		this.email = email;
@@ -95,11 +96,13 @@ public class Usuario {
 		this.bairro = bairro;
 		this.numero = numero;
 		this.complemento = complemento;
+		this.aula = aula;
+		this.professor = professor;
 	}
 	
-	
 	public Usuario(Long id, String nome, String email, String cpf, Date dtNasc, String senha, String telefone,
-			String endereco, String cep, UF uf, String cidade, String bairro, int numero, String complemento) {
+			String endereco, String cep, UF uf, String cidade, String bairro, int numero, String complemento,
+			List<Aula> aula, Professor professor) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -115,12 +118,16 @@ public class Usuario {
 		this.bairro = bairro;
 		this.numero = numero;
 		this.complemento = complemento;
+		this.aula = aula;
+		this.professor = professor;
 	}
+
 
 	//Acessores
 	public Long getId() {
 		return id;
 	}
+
 
 	public void setId(Long id) {
 		this.id = id;
@@ -244,8 +251,12 @@ public class Usuario {
 		return "Usuario [id=" + id + ", nome=" + nome + ", email=" + email + ", cpf=" + cpf + ", dtNasc=" + dtNasc
 				+ ", senha=" + senha + ", telefone=" + telefone + ", endereco=" + endereco + ", cep=" + cep + ", uf="
 				+ uf + ", cidade=" + cidade + ", bairro=" + bairro + ", numero=" + numero + ", complemento="
-				+ complemento + ", aula=" + aula + "]";
+				+ complemento + ", aula=" + aula + ", professor=" + professor + "]";
 	}
+
+	
+
+
 
 
 	

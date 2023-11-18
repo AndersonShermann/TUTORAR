@@ -48,12 +48,12 @@
 							<td>
 								<a th:text="${aulas.nome_disciplina}" th:href="@{/aulas/{id} (id=${aulas.id})}"></a>
 							</td>
-							<td th:text="${aulas.categoria}"></td>
+							<td th:text="${aulas.categoria.getCategoria()}"></td>
 							<td th:text="${aulas.descricao}"></td>
 							<td th:text="${aulas.dt_aula}"></td>
 							<td th:text="${aulas.hr_aula}"></td>
-							<td th:text="${aulas.plataforma}"></td>
-							<td th:text="${aulas.tipo_aula}"></td>
+							<td th:text="${aulas.plataforma.getPlatAula()}"></td>
+							<td th:text="${aulas.tipo_aula.getTpAula()}"></td>
 							<td th:text="${aulas.vl_aula}"></td>
 							<td>
 								<a th:href="@{/{id}/editar (id=${aulas.id})}" class="btn btn-warning">

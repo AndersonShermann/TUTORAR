@@ -155,8 +155,8 @@
                         <div class="form-group row  mb-3">
                           <label class="col-sm-3 col-form-label fw-bolder">Estado</label>
                           <div class="col-sm-9">
-                            <select th:field="*{uf}" class="form-control select2bs4" style="width: 100%;">
-                              <option th:each="uf : ${ufs}" th:text="${uf}" th:value="${uf}">SP</option>
+                            <select th:field="${usuario.uf}" class="form-control select2bs4" style="width: 100%;">
+                              <option th:each="sigla : ${sigla}" th:text="${sigla.getSigla()}" th:value="${sigla}"></option>
                             </select>
                           </div>
                         </div>

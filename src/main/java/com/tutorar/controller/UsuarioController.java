@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.tutorar.enums.UF;
 import com.tutorar.model.Usuario;
 import com.tutorar.repository.UsuarioRepository;
 
@@ -37,6 +38,7 @@ public class UsuarioController {
         ModelAndView modelAndView = new ModelAndView("usuario/cadastroUsuario");
 
         modelAndView.addObject("usuario", new Usuario());
+        modelAndView.addObject("sigla",UF.values());
 
         return modelAndView;
     }
@@ -46,6 +48,7 @@ public class UsuarioController {
         ModelAndView modelAndView = new ModelAndView("usuario/editarUsuario");
 
         modelAndView.addObject("usuario", usuarioRepository.getReferenceById(id));
+        modelAndView.addObject("sigla",UF.values());
 
         return modelAndView;
     }
