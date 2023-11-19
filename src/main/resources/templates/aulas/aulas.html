@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.thymeleaf.org">
 
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Aulas</title>
     <link rel="stylesheet" href="../../static/css/estilo.css">
@@ -66,7 +67,9 @@
                 <div class="card border-0 card-solid">
                     <div class="card-body pb-0">
                         <div class="row">
-                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch mb-3 flex-column">
+
+                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch mb-3 flex-column"
+                            th:each="aulas : ${aulas}">
                                 <div class="card bg-light d-flex flex-fill">
                                     <div class="card-header bg-light text-muted border-bottom-0">
                                         Professor: Nome
@@ -74,38 +77,43 @@
                                     <div class="card-body pt-0">
                                         <div class="row">
                                             <div class="col-7">
-                                                <h2 class="lead"><b>Assunto da Aula</b></h2>
-                                                <p class="text-muted text-sm"><b>Descrição: </b> Web Designer</p>
+                                                <h2 class="lead" th:text="${aulas.nome_disciplina}" 
+                                                th:href="@{/aulas/{id} (id=${aulas.id})}"><b>Assunto da Aula</b></h2>
+                                                
+                                                <p class="text-muted text-sm"><span class="pe-1"><b>Descrição:</b></span>
+                                                    <span th:text="${aulas.descricao}"></span>
+                                                </p>
+
                                                 <ul class="text-muted ">
 
                                                     <li class="small">
                                                         <span class="pe-1">Categoria:</span>
-                                                        <span> categorias</span>
+                                                        <span th:text="${aulas.categoria.getCategoria()}"></span>
                                                     </li>
 
                                                     <li class="small">
                                                         <span class="pe-1">Data:</span>
-                                                        <span> dd/mm/aaaa</span>
+                                                        <span th:text="${aulas.dt_aula}"></span>
                                                     </li>
 
                                                     <li class="small">
                                                         <span class="pe-1">Horário:</span>
-                                                        <span> xx:xxh</span>
+                                                        <span th:text="${aulas.hr_aula}"></span>
                                                     </li>
 
                                                     <li class="small">
                                                         <span class="pe-1">Plataforma:</span>
-                                                        <span> plataforma</span>
+                                                        <span th:text="${aulas.plataforma.getPlatAula()}"></span>
                                                     </li>
 
                                                     <li class="small">
                                                         <span class="pe-1">Tipo:</span>
-                                                        <span> tipo</span>
+                                                        <span th:text="${aulas.tipo_aula.getTpAula()}"></span>
                                                     </li>
 
                                                     <li class="small">
                                                         <span class="">Valor: R$</span>
-                                                        <span> 00,00</span>
+                                                        <span th:text="${aulas.vl_aula}"></span>
                                                     </li>
 
                                                 </ul>
@@ -127,493 +135,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch mb-3 flex-column">
-                                <div class="card bg-light d-flex flex-fill">
-                                    <div class="card-header bg-light text-muted border-bottom-0">
-                                        Professor: Nome
-                                    </div>
-                                    <div class="card-body pt-0">
-                                        <div class="row">
-                                            <div class="col-7">
-                                                <h2 class="lead"><b>Assunto da Aula</b></h2>
-                                                <p class="text-muted text-sm"><b>Descrição: </b> Web Designer</p>
-                                                <ul class="text-muted ">
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Categoria:</span>
-                                                        <span> categorias</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Data:</span>
-                                                        <span> dd/mm/aaaa</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Horário:</span>
-                                                        <span> xx:xxh</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Plataforma:</span>
-                                                        <span> plataforma</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Tipo:</span>
-                                                        <span> tipo</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="">Valor: R$</span>
-                                                        <span> 00,00</span>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                            <div class="col-5 text-center">
-                                                <img src="../../static/img/logo.png" alt="user-avatar"
-                                                    class=" img-fluid">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer border-0">
-                                        <div class="text-right float-end">
-
-                                            <a href="#" class="btn btn-sm fs-6 fw-bolder text-light bg-laranja">
-                                                Assinar
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch mb-3 flex-column">
-                                <div class="card bg-light d-flex flex-fill">
-                                    <div class="card-header bg-light text-muted border-bottom-0">
-                                        Professor: Nome
-                                    </div>
-                                    <div class="card-body pt-0">
-                                        <div class="row">
-                                            <div class="col-7">
-                                                <h2 class="lead"><b>Assunto da Aula</b></h2>
-                                                <p class="text-muted text-sm"><b>Descrição: </b> Web Designer</p>
-                                                <ul class="text-muted ">
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Categoria:</span>
-                                                        <span> categorias</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Data:</span>
-                                                        <span> dd/mm/aaaa</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Horário:</span>
-                                                        <span> xx:xxh</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Plataforma:</span>
-                                                        <span> plataforma</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Tipo:</span>
-                                                        <span> tipo</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="">Valor: R$</span>
-                                                        <span> 00,00</span>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                            <div class="col-5 text-center">
-                                                <img src="../../static/img/logo.png" alt="user-avatar"
-                                                    class=" img-fluid">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer border-0">
-                                        <div class="text-right float-end">
-
-                                            <a href="#" class="btn btn-sm fs-6 fw-bolder text-light bg-laranja">
-                                                Assinar
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch mb-3 flex-column">
-                                <div class="card bg-light d-flex flex-fill">
-                                    <div class="card-header bg-light text-muted border-bottom-0">
-                                        Professor: Nome
-                                    </div>
-                                    <div class="card-body pt-0">
-                                        <div class="row">
-                                            <div class="col-7">
-                                                <h2 class="lead"><b>Assunto da Aula</b></h2>
-                                                <p class="text-muted text-sm"><b>Descrição: </b> Web Designer</p>
-                                                <ul class="text-muted ">
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Categoria:</span>
-                                                        <span> categorias</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Data:</span>
-                                                        <span> dd/mm/aaaa</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Horário:</span>
-                                                        <span> xx:xxh</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Plataforma:</span>
-                                                        <span> plataforma</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Tipo:</span>
-                                                        <span> tipo</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="">Valor: R$</span>
-                                                        <span> 00,00</span>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                            <div class="col-5 text-center">
-                                                <img src="../../static/img/logo.png" alt="user-avatar"
-                                                    class=" img-fluid">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer border-0">
-                                        <div class="text-right float-end">
-
-                                            <a href="#" class="btn btn-sm fs-6 fw-bolder text-light bg-laranja">
-                                                Assinar
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch mb-3 flex-column">
-                                <div class="card bg-light d-flex flex-fill">
-                                    <div class="card-header bg-light text-muted border-bottom-0">
-                                        Professor: Nome
-                                    </div>
-                                    <div class="card-body pt-0">
-                                        <div class="row">
-                                            <div class="col-7">
-                                                <h2 class="lead"><b>Assunto da Aula</b></h2>
-                                                <p class="text-muted text-sm"><b>Descrição: </b> Web Designer</p>
-                                                <ul class="text-muted ">
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Categoria:</span>
-                                                        <span> categorias</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Data:</span>
-                                                        <span> dd/mm/aaaa</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Horário:</span>
-                                                        <span> xx:xxh</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Plataforma:</span>
-                                                        <span> plataforma</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Tipo:</span>
-                                                        <span> tipo</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="">Valor: R$</span>
-                                                        <span> 00,00</span>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                            <div class="col-5 text-center">
-                                                <img src="../../static/img/logo.png" alt="user-avatar"
-                                                    class=" img-fluid">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer border-0">
-                                        <div class="text-right float-end">
-
-                                            <a href="#" class="btn btn-sm fs-6 fw-bolder text-light bg-laranja">
-                                                Assinar
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch mb-3 flex-column">
-                                <div class="card bg-light d-flex flex-fill">
-                                    <div class="card-header bg-light text-muted border-bottom-0">
-                                        Professor: Nome
-                                    </div>
-                                    <div class="card-body pt-0">
-                                        <div class="row">
-                                            <div class="col-7">
-                                                <h2 class="lead"><b>Assunto da Aula</b></h2>
-                                                <p class="text-muted text-sm"><b>Descrição: </b> Web Designer</p>
-                                                <ul class="text-muted ">
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Categoria:</span>
-                                                        <span> categorias</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Data:</span>
-                                                        <span> dd/mm/aaaa</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Horário:</span>
-                                                        <span> xx:xxh</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Plataforma:</span>
-                                                        <span> plataforma</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Tipo:</span>
-                                                        <span> tipo</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="">Valor: R$</span>
-                                                        <span> 00,00</span>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                            <div class="col-5 text-center">
-                                                <img src="../../static/img/logo.png" alt="user-avatar"
-                                                    class=" img-fluid">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer border-0">
-                                        <div class="text-right float-end">
-
-                                            <a href="#" class="btn btn-sm fs-6 fw-bolder text-light bg-laranja">
-                                                Assinar
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch mb-3 flex-column">
-                                <div class="card bg-light d-flex flex-fill">
-                                    <div class="card-header bg-light text-muted border-bottom-0">
-                                        Professor: Nome
-                                    </div>
-                                    <div class="card-body pt-0">
-                                        <div class="row">
-                                            <div class="col-7">
-                                                <h2 class="lead"><b>Assunto da Aula</b></h2>
-                                                <p class="text-muted text-sm"><b>Descrição: </b> Web Designer</p>
-                                                <ul class="text-muted ">
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Categoria:</span>
-                                                        <span> categorias</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Data:</span>
-                                                        <span> dd/mm/aaaa</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Horário:</span>
-                                                        <span> xx:xxh</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Plataforma:</span>
-                                                        <span> plataforma</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Tipo:</span>
-                                                        <span> tipo</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="">Valor: R$</span>
-                                                        <span> 00,00</span>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                            <div class="col-5 text-center">
-                                                <img src="../../static/img/logo.png" alt="user-avatar"
-                                                    class=" img-fluid">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer border-0">
-                                        <div class="text-right float-end">
-
-                                            <a href="#" class="btn btn-sm fs-6 fw-bolder text-light bg-laranja">
-                                                Assinar
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch mb-3 flex-column">
-                                <div class="card bg-light d-flex flex-fill">
-                                    <div class="card-header bg-light text-muted border-bottom-0">
-                                        Professor: Nome
-                                    </div>
-                                    <div class="card-body pt-0">
-                                        <div class="row">
-                                            <div class="col-7">
-                                                <h2 class="lead"><b>Assunto da Aula</b></h2>
-                                                <p class="text-muted text-sm"><b>Descrição: </b> Web Designer</p>
-                                                <ul class="text-muted ">
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Categoria:</span>
-                                                        <span> categorias</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Data:</span>
-                                                        <span> dd/mm/aaaa</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Horário:</span>
-                                                        <span> xx:xxh</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Plataforma:</span>
-                                                        <span> plataforma</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Tipo:</span>
-                                                        <span> tipo</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="">Valor: R$</span>
-                                                        <span> 00,00</span>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                            <div class="col-5 text-center">
-                                                <img src="../../static/img/logo.png" alt="user-avatar"
-                                                    class=" img-fluid">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer border-0">
-                                        <div class="text-right float-end">
-
-                                            <a href="#" class="btn btn-sm fs-6 fw-bolder text-light bg-laranja">
-                                                Assinar
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch mb-3 flex-column">
-                                <div class="card bg-light d-flex flex-fill">
-                                    <div class="card-header bg-light text-muted border-bottom-0">
-                                        Professor: Nome
-                                    </div>
-                                    <div class="card-body pt-0">
-                                        <div class="row">
-                                            <div class="col-7">
-                                                <h2 class="lead"><b>Assunto da Aula</b></h2>
-                                                <p class="text-muted text-sm"><b>Descrição: </b> Web Designer</p>
-                                                <ul class="text-muted ">
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Categoria:</span>
-                                                        <span> categorias</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Data:</span>
-                                                        <span> dd/mm/aaaa</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Horário:</span>
-                                                        <span> xx:xxh</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Plataforma:</span>
-                                                        <span> plataforma</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="pe-1">Tipo:</span>
-                                                        <span> tipo</span>
-                                                    </li>
-
-                                                    <li class="small">
-                                                        <span class="">Valor: R$</span>
-                                                        <span> 00,00</span>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                            <div class="col-5 text-center">
-                                                <img src="../../static/img/logo.png" alt="user-avatar"
-                                                    class=" img-fluid">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer border-0">
-                                        <div class="text-right float-end">
-
-                                            <a href="#" class="btn btn-sm fs-6 fw-bolder text-light bg-laranja">
-                                                Assinar
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
 
                         </div>
                     </div>
