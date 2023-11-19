@@ -11,3 +11,25 @@
 .bg-laranja {
     background-color: rgb(211, 86, 55) !important;
 }
+
+.borda-redonda {
+    border-radius: 23px 6px !important;
+}
+
+.borda-topo {
+    border-top: 4px solid rgb(211, 86, 55) !important;
+}
+
+.letra-large {
+    font-size: large !important;
+}
+
+
+/*Modal Editar*/
+.borda-top {
+    border-top: 5px solid !important;
+}
+
+.img {
+    width: 100px;
+}
