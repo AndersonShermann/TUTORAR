@@ -72,8 +72,9 @@
                         <div class="card card-outline borda-topo">
                             <div class="card-body box-profile">
                                 <div class="text-center">
-                                    <img class="profile-user-img img-fluid rounded-circle"
-                                        src="../../static/img/tutorarttlampada.png" alt="User profile picture">
+                                        <img class="profile-user-img img-fluid img-circle" id="profile-user-img"
+										alt="User profile picture"
+										th:src="|/imagem/${usuario.id}|">
                                 </div>
 
                                 <h3 class="profile-username text-center" th:text="${usuario.nome}">Nome</h3>
