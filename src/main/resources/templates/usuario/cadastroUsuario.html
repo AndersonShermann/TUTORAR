@@ -86,7 +86,7 @@
 
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form class="form-horizontal" method="POST" th:object="${usuario}">
+                <form class="form-horizontal" method="POST" th:object="${usuario}" enctype="multipart/form-data">
                   <div class="card-body">
 
                     <div class="card-header bg-white">
@@ -133,6 +133,13 @@
                           Nascimento</label>
                         <div class="col-sm-9">
                           <input type="date" class="form-control" id="dataNascimento" th:field="*{dtNasc}">
+                        </div>
+                      </div>
+
+                      <div class="form-group row mb-5">
+                        <label for="imagem" class="col-sm-3 col-form-label fw-bolder">Foto de Perfil</label>
+                        <div class="col-sm-9">
+                          <input type="file" class="form-control" id="imagem" name="imagemUsuario">
                         </div>
                       </div>
 
