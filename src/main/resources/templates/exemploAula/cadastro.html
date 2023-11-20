@@ -29,44 +29,53 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<form action="/cadastrarAulas" method="post" th:object="${aula}" enctype="multipart/form-data">
+
 					<div class="mb-3">
 						<label for="nome" class="form-label">Categoria</label>
 						<select class="form-control" th:field=${aula.categoria}>
 							<option th:each="cat: ${cat}" th:text=${cat.getCategoria()} th:value="${cat}"></option>
 						</select>
 					</div>
+
 					<div class="mb-3">
 						<label for="cpf" class="form-label">Descrição</label>
 						<input type="text" class="form-control" id="cpd" th:field="*{descricao}" placeholder="CPF (Apenas números)">
 					</div>
+
 					<div class="mb-3">
 						<label for="senha" class="form-label">data Aula</label>
 						<input type="date" class="form-control" id="senha" th:field="*{dt_aula}" placeholder="dd/mm/yyyy">
 					</div>
+
 					<div class="mb-3">
 						<label for="nome" class="form-label">Hora aula</label>
 						<input type="time" class="form-control" id="hr_aula" th:field="*{hr_aula}" placeholder="hh:mm:ss">
 					</div>
+
 					<div class="mb-3">
 						<label for="cpf" class="form-label">Nome Disciplina</label>
 						<input type="text" class="form-control" id="cpd" th:field="*{nome_disciplina}" placeholder="CPF (Apenas números)">
 					</div>
+
 					<div class="mb-3">
 						<label for="senha" class="form-label">Plataforma</label>
 						<select class="form-control" th:field=${aula.plataforma}>
 							<option th:each="plat: ${plat}" th:text=${plat.getPlatAula()} th:value="${plat}"></option>
 						</select>
 					</div>
+
 					<div class="mb-3">
 						<label for="nome" class="form-label">Tipo de Aula</label>
 						<select class="form-control" th:field=${aula.tipo_aula}>
 							<option th:each="tAula: ${tAula}" th:text=${tAula.getTpAula()} th:value="${tAula}"></option>
 						</select>
 					</div>
+
 					<div class="mb-3">
 						<label for="cpf" class="form-label">Valor da Aula</label>
 						<input type="text" class="form-control" id="cpd" th:field="*{vl_aula}" placeholder="CPF (Apenas números)">
-					</div>					
+					</div>	
+									
 					<br>
 					<button type="submit" class="btn btn-primary">Cadastrar</button>
 				</form>

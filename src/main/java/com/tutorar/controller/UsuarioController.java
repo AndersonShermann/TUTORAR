@@ -1,5 +1,6 @@
 package com.tutorar.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tutorar.enums.UF;
@@ -24,7 +28,7 @@ public class UsuarioController {
     
 	@GetMapping("/listar-usuario")
 	public ModelAndView listar() {
-		ModelAndView modelAndView = new ModelAndView("usuario/listarUsuario.html");
+		ModelAndView modelAndView = new ModelAndView("usuario/listarUsuario.html"); //necessario modificar o caminho
  
 		List<Usuario> usuarios = usuarioRepository.findAll();
 		modelAndView.addObject("usuario", usuarios);
@@ -45,7 +49,7 @@ public class UsuarioController {
 
     @GetMapping("/{id}/editar-usuario")
     public ModelAndView editar(@PathVariable Long id) {
-        ModelAndView modelAndView = new ModelAndView("usuario/editarUsuario");
+        ModelAndView modelAndView = new ModelAndView("usuario/editarUsuario.html"); //necessario modificar o caminho
 
         modelAndView.addObject("usuario", usuarioRepository.getReferenceById(id));
         modelAndView.addObject("sigla",UF.values());
@@ -54,10 +58,23 @@ public class UsuarioController {
     }
 
     @PostMapping({"/cadastrar-usuario", "/{id}/editar-usuario"})
-    public String salvar(Usuario usuario) {
+    public String salvar(Usuario usuario, @RequestParam("imagemUsuario") MultipartFile file) throws IOException {
+    	
+    	try {
+    		usuario.setImagem(file.getBytes());
+    	}catch(IOException e) {
+    		e.printStackTrace();
+    	}
 
         usuarioRepository.save(usuario);
         return "redirect:/listar-usuario";
+    }
+    
+    @GetMapping("/imagem/{id}")
+    @ResponseBody
+    public byte[] exibirImagem(@PathVariable("id") Long id) {
+    	Usuario usuario = this.usuarioRepository.getReferenceById(id);
+    	return usuario.getImagem();
     }
 
     @GetMapping("/{id}/excluir-usuario")
@@ -69,7 +86,7 @@ public class UsuarioController {
     
 	@GetMapping("/{id}/perfil-usuario")
 	public ModelAndView perfil(@PathVariable Long id) {
-		ModelAndView modelAndView = new ModelAndView("usuario/perfilUsuario");
+		ModelAndView modelAndView = new ModelAndView("usuario/perfilUsuario"); //necessario modificar o caminho
  
 		Usuario usuario = usuarioRepository.getReferenceById(id);
 		modelAndView.addObject("usuario", usuario);

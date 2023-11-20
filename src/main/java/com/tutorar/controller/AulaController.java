@@ -33,7 +33,7 @@ public class AulaController {
 	//listar aulas
 	@GetMapping("/listarAulas")
 	public ModelAndView listarAulas() {
-		ModelAndView modelAndView = new ModelAndView("aulas/listar.html");
+		ModelAndView modelAndView = new ModelAndView("aulas/aulas.html");
 		
 		List<Aula> aulas = aulaRepository.findAll();
 		modelAndView.addObject("aulas", aulas); //usado no thymeleaf (?)
@@ -43,7 +43,7 @@ public class AulaController {
 	//cadastra aulas
 	@GetMapping("/cadastroAulas")
 	public ModelAndView cadastrarAulas() {
-		ModelAndView modelAndView = new ModelAndView("aulas/cadastro.html");
+		ModelAndView modelAndView = new ModelAndView("aulas/cadastroAula.html");
 		
 		//objeto Aula vazio via constructor
 		modelAndView.addObject("aula", new Aula());
