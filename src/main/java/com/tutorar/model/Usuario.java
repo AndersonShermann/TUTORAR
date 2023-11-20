@@ -66,6 +66,9 @@ public class Usuario {
     @Column
     private String complemento;
     
+    @Column(columnDefinition = "longblob")
+    private byte[] imagem;
+    
     @OneToMany
     @JoinColumn(name="usuario_id")
     private List<Aula> aula;
@@ -235,6 +238,14 @@ public class Usuario {
 
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
+	}
+	
+	public byte[] getImagem() {
+		return imagem;
+	}
+	
+	public void setImagem(byte[] imagem) {
+		this.imagem = imagem;
 	}
 	
 	
