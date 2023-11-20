@@ -425,7 +425,7 @@
                         <div class="card">
 
                             <div class="card-header bg-laranja d-flex">
-                                <h4 class="card-title text-white fw-bolder">Minhas aulas</h4> 
+                                <h4 class="card-title text-white fw-bolder">Minhas aulas</h4>
                             </div>
 
                             <div class="card-body pb-0 mb-2">
@@ -729,6 +729,7 @@
                                             </div>
 
                                             <div class="mt-3">
+
                                                 <input type="hidden" th:field="*{id}">
 
                                                 <div class="form-group row mb-3">
@@ -786,7 +787,15 @@
                                                 </div>
 
                                                 <div class="mt-3">
-                                                    <input type="hidden" th:field="*{endereco}">
+                                                    
+                                                    <div class="form-group row  mb-3">
+                                                        <label for="endereco"
+                                                            class="col-sm-3 col-form-label fw-bolder">Endereço</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" class="form-control" id="endereco"
+                                                                placeholder="Rua das coves" th:field="*{endereco}">
+                                                        </div>
+                                                    </div>
 
                                                     <div class="form-group row  mb-3">
                                                         <label for="endereco.cep"

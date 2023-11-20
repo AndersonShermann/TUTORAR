@@ -33,7 +33,7 @@ public class AulaController {
 	//listar aulas
 	@GetMapping("/listarAulas")
 	public ModelAndView listarAulas() {
-		ModelAndView modelAndView = new ModelAndView("aulas/listar.html");
+		ModelAndView modelAndView = new ModelAndView("aulas/aulas.html");
 		
 		List<Aula> aulas = aulaRepository.findAll();
 		modelAndView.addObject("aulas", aulas); //usado no thymeleaf (?)
