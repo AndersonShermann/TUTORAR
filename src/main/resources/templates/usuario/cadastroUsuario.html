@@ -11,86 +11,67 @@
 
 </head>
 
-<body class="">
-  <div class="">
+<body>
+  <div>
+
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-laranja">
-      <div class="container-fluid ">
-        <a class="navbar-brand" href="#">
-          <img src="../../static/img/logo50px.png" alt=""></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-light" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Dropdown
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled text-light" aria-disabled="true">Disabled</a>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-warning" type="submit">Search</button>
-          </form>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-laranja">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="../../static/img/logo50px.png" alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active text-light fw-bolder" aria-current="page" href="#">Página
+                  inicial</a>
+              </li>
+
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-warning" type="submit">Search</button>
+            </form>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
     <!-- /.navbar -->
 
 
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="bg-body-tertiary">
-      <!-- Content Header (Page header) -->
+    <!-- Inicio do formulario do cadastro -->
+    <main class="bg-body-tertiary">
 
-
-      <!-- Main content -->
       <section class="content">
         <div class="container-fluid ">
           <div class="row justify-content-center">
-            <!-- left column -->
+
             <div class="col-md-8 bg-white pb- ">
 
-
-              <!-- Horizontal Form -->
               <div class="card card-info border-0">
 
-                <section class="">
+                <section>
                   <div class="container-fluid">
                     <div class="row mb-2 justify-content-center">
                       <div class="col-sm-6 text-center pb-4 pt-5">
                         <h1><img src="../../static/img/tutorarttlampada30px.png" class="pb-1 pe-2"><b>Cadastro</b></h1>
                       </div>
                     </div>
-                  </div><!-- /.container-fluid -->
+                  </div>
                 </section>
 
-                <!-- /.card-header -->
-                <!-- form start -->
+                
                 <form class="form-horizontal" method="POST" th:object="${usuario}" enctype="multipart/form-data">
                   <div class="card-body">
 
                     <div class="card-header bg-white">
-                      <h5 class="card-title fw-bolder" style="font-size: large;">Informações pessoais</h5>
+                      <h5 class="card-title fw-bolder letra-large">Informações pessoais</h5>
                     </div>
 
                     <div class="mt-3">
@@ -145,11 +126,18 @@
 
 
                       <div class="card-header bg-white mt-3">
-                        <h5 class="card-title fw-bolder" style="font-size: large;">Endereço</b></h3>
+                        <h5 class="card-title fw-bolder letra-large">Endereço</b></h3>
                       </div>
 
                       <div class="mt-3">
-                        <input type="hidden" th:field="*{endereco}">
+
+                        <div class="form-group row  mb-3">
+                          <label for="endereco" class="col-sm-3 col-form-label fw-bolder">Endereço</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" id="endereco" placeholder="Rua das coves"
+                              th:field="*{endereco}">
+                          </div>
+                        </div>
 
                         <div class="form-group row  mb-3">
                           <label for="endereco.cep" class="col-sm-3 col-form-label fw-bolder">CEP</label>
@@ -162,8 +150,9 @@
                         <div class="form-group row  mb-3">
                           <label class="col-sm-3 col-form-label fw-bolder">Estado</label>
                           <div class="col-sm-9">
-                            <select th:field="${usuario.uf}" class="form-control select2bs4" style="width: 100%;">
-                              <option th:each="sigla : ${sigla}" th:text="${sigla.getSigla()}" th:value="${sigla}"></option>
+                            <select th:field="${usuario.uf}" class="form-control select2bs4 w-100">
+                              <option th:each="sigla : ${sigla}" th:text="${sigla.getSigla()}" th:value="${sigla}">
+                              </option>
                             </select>
                           </div>
                         </div>
@@ -212,46 +201,32 @@
 
 
                     </div>
-                    <!-- /.card-body -->
+
                     <div class="card-footer border-0">
-                      <button type="submit" class="btn text-white"
-                        style="background-color: rgb(211, 86, 55);">Cadastrar</button>
+                      <button type="submit" class="btn text-white bg-laranja">Cadastrar</button>
                       <button type="submit" class="btn btn-default float-end border">Cancelar</button>
                     </div>
-                    <!-- /.card-footer -->
                 </form>
               </div>
-              <!-- /.card -->
-
             </div>
-            <!--/.col (left) -->
-            <!-- right column -->
-
-
-
-
-
-
-
-
           </div>
-          <!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
       </section>
-      <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
-    <footer class=" pb-5" style="background-color: rgb(211, 86, 55);">
+
+    </main>
+
+    <footer class=" pb-5 bg-laranja">
       <div class="container-fluid text-center text-md-start">
         <div class="row text-center text-md-start fs-9">
           <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
             <h5 class="text-light">
-              <img src="../static/img/tutorarttlampada30px.png" alt="Logo" class="logo-image">
+              <img src="../../static/img/tutorarttlampada30px.png" alt="Logo" class="logo-image">
               Tutorar
             </h5>
 
-            <p class="text-light"><small>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid atque fuga
-                sapiente eveniet quo animi maxime ipsa dignissimos asperiores deleniti!</small></p>
+            <p class="text-light"><small>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid
+                atque fuga sapiente eveniet quo animi maxime ipsa dignissimos asperiores
+                deleniti!</small></p>
           </div>
 
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3" id="link">
@@ -264,7 +239,8 @@
               <a href="#" class="text-decoration-none text-light"><small>Canal de Ética</small></a>
             </p>
             <p>
-              <a href="#" class="text-decoration-none text-light"><small>Política de Privacidade</small></a>
+              <a href="#" class="text-decoration-none text-light"><small>Política de
+                  Privacidade</small></a>
             </p>
 
           </div>
@@ -298,7 +274,7 @@
             </p>
           </div>
 
-          <hr class="mb-4  " style="border-color: rgb(255, 255, 255);">
+          <hr class="mb-4 border-white">
 
           <div class="row align-items-center text-muted">
             <div class="col-md-12 col-lg-12">
@@ -317,18 +293,15 @@
                   </li>
                 </ul>
               </div>
-
             </div>
           </div>
         </div>
       </div>
     </footer>
 
-    <!-- Control Sidebar -->
-
-    <!-- /.control-sidebar -->
+  
   </div>
-  <!-- ./wrapper -->
+
 
   <th:block th:fragment="scripts">
     <script th:src="@{/plugins/select2/js/select2.full.min.js}"></script>
