@@ -11,6 +11,6 @@ from openjdk:17-jdk-slim
 
 expose 8080
 
-copy --from=build /target/deploy_render-1.0.0.jar app.jar
+copy --from=build /target/Tutorar-0.0.1-SNAPSHOT.jar
 
 ENTRYPOINT [ "java", "-jar", "add.jar" ]
