@@ -1,4 +1,4 @@
-from unbuntu:lateste as build
+from unbuntu:latest as build
 
 run apt-get update
 run apt-get install openjdk-17-jdk -y
