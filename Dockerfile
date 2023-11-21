@@ -13,4 +13,4 @@ expose 8080
 
 copy --from=build /target/Tutorar-0.0.1-SNAPSHOT.jar app.jar
 
-ENTRYPOINT [ "java", "-jar", "add.jar" ]
+ENTRYPOINT [ "java", "-jar", "app.jar" ]
