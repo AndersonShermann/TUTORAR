@@ -13,9 +13,38 @@
 </head>
 
 <body class="bg-light">
+
+	<!-- Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg bg-laranja container-fluid">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="../../static/img/logo50px.png" alt=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active text-light fw-bolder" aria-current="page" href="#">Página
+                                inicial</a>
+                        </li>
+
+                    </ul>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-warning" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- /.navbar -->
 	
 
-	<main class="container-fluid ">
+	<main class="container-fluid">
 		<div class="container-fluid mt-3">
 			<div class="row mb-2 border-radius">
 				<div class="col-sm-12">
@@ -29,44 +58,48 @@
 
 		<div class="row bg-white">
 			<div class="col-sm-12">
-				<table class="table">
+				<table class="table table-responsive table-striped table-bordered">
 					<thead class="bg-laranja">
 						<tr>
 							<th scope="col" class="text-light">Matrícula</th>
+							<th scope="col" class="text-light">Foto</th>
 							<th scope="col" class="text-light">Nome</th>
 							<th scope="col" class="text-light">CPF</th>
-							<th scope="col" class="text-light">Data de Nascimento</th>
+							<!-- <th scope="col" class="text-light">Data de Nascimento</th> -->
 							<th scope="col" class="text-light">Email</th>
-							<th scope="col" class="text-light">Endereço</th>
-							<th scope="col" class="text-light">Cidade</th>
+							<!-- <th scope="col" class="text-light">Endereço</th>
+							<th scope="col" class="text-light">Cidade</th> -->
 							<th scope="col" class="text-light">UF</th>
-							<th scope="col" class="text-light">Bairro</th>
+							<!-- <th scope="col" class="text-light">Bairro</th>
 							<th scope="col" class="text-light">Numero</th>
 							<th scope="col" class="text-light">Complemento</th>
 							<th scope="col" class="text-light">CEP</th>
 							<th scope="col" class="text-light">Telefone</th>
-							<th scope="col" class="text-light">Senha</th>
+							<th scope="col" class="text-light">Senha</th> -->
 							<th scope="col" class="text-light">Ações</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="usuario : ${usuario}">
 							<th scope="row" th:text="${usuario.id}"></th>
+							<td><img class="profile-user-img img-fluid img-circle" id="profile-user-img"
+										alt="User profile picture"
+										th:src="|/imagem/${usuario.id}|" width="50"></td>
 							<td>
-								<a th:text="${usuario.nome}" th:href="@{/{id}/perfil-usuario (id=${usuario.id})}"></a>
+								<a th:text="${usuario.nome}" th:href="@{/{id}/perfil-usuario (id=${usuario.id})}" class="fs-6 text-nowrap"></a>
 							</td>
-							<td th:text="${usuario.cpf}"></td>
-							<td th:text="${usuario.dtNasc}"></td>
-							<td th:text="${usuario.email}"></td>
-							<td th:text="${usuario.endereco}"></td>
-							<td th:text="${usuario.cidade}"></td>
-							<td th:text="${usuario.uf}"></td>
-							<td th:text="${usuario.bairro}"></td>
-							<td th:text="${usuario.numero}"></td>
-							<td th:text="${usuario.complemento}"></td>
-							<td th:text="${usuario.cep}"></td>
-							<td th:text="${usuario.telefone}"></td>
-							<td th:text="${usuario.senha}"></td>
+							<td th:text="${usuario.cpf}" class="fs-6 text-nowrap"></td>
+							<!-- <td th:text="${usuario.dtNasc}" class="fs-6 text-nowrap"></td> -->
+							<td th:text="${usuario.email}" class="fs-6 text-nowrap"></td>
+							<!-- <td th:text="${usuario.endereco}" class="fs-6 text-nowrap"></td>
+							<td th:text="${usuario.cidade}" class="fs-6 text-nowrap"></td> -->
+							<td th:text="${usuario.uf}" class="fs-6 text-nowrap"></td>
+							<!-- <td th:text="${usuario.bairro}" class="fs-6 text-nowrap"></td>
+							<td th:text="${usuario.numero}" class="fs-6 text-nowrap"></td>
+							<td th:text="${usuario.complemento}" class="fs-6 text-nowrap"></td>
+							<td th:text="${usuario.cep}" class="fs-6 text-nowrap"></td>
+							<td th:text="${usuario.telefone}" class="fs-6 text-nowrap"></td>
+							<td th:text="${usuario.senha}" class="fs-6 text-nowrap"></td> -->
 							<td>
 								<a th:href="@{/{id}/editar-usuario (id=${usuario.id})}" class="btn btn-warning">
 									Editar
@@ -88,6 +121,90 @@
 			</div>
 		</div>
 	</main>
+
+	<footer class=" pb-5 bg-laranja mt-5">
+        <div class="container-fluid text-center text-md-start">
+            <div class="row text-center text-md-start fs-9">
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-light">
+                        <img src="../../static/img/tutorarttlampada30px.png" alt="Logo" class="logo-image">
+                        Tutorar
+                    </h5>
+
+                    <p class="text-light"><small>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid
+                            atque fuga sapiente eveniet quo animi maxime ipsa dignissimos asperiores
+                            deleniti!</small></p>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3" id="link">
+                    <h5 class="mb-4 text-primary fs-6 text-light"><small></small> Nós</h5>
+                    <p>
+                        <a href="#" class="text-decoration-none text-light"><small>Nossa História</small></a>
+                    </p>
+
+                    <p>
+                        <a href="#" class="text-decoration-none text-light"><small>Canal de Ética</small></a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-decoration-none text-light"><small>Política de
+                                Privacidade</small></a>
+                    </p>
+
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3" id="link">
+                    <h5 class="mb-4 text-primary fs-6 text-light">Suporte</h5>
+
+                    <p>
+
+                    <p>
+                        <a href="#" class="text-decoration-none text-light"><small>Formas de Pagamento</small></a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-decoration-none text-light"><small>Perguntas frequentes</small></a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-decoration-none text-light"><small>Recursos</small></a>
+                    </p>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="mb-4 text-light fs-6">Contatos</h5>
+                    <p class="text-muted">
+                        <i class="bi bi-house-door text-light "><small>Rio de Janeiro, RJ - BR</small></i>
+                    </p>
+                    <p class="text-muted">
+                        <i class="bi bi-envelope-at text-light"><small>tutorar@tutorar.com</small></i>
+                    </p>
+                    <p class="text-muted">
+                        <i class="bi bi-telephone-inbound text-light"><small>+ 55 21 0 0000-0000</small></i>
+                    </p>
+                </div>
+
+                <hr class="mb-4 border-white">
+
+                <div class="row align-items-center text-muted">
+                    <div class="col-md-12 col-lg-12">
+                        <p class=" text-center text-light">&copy; Copyright 2023 Tutorar. Ensine, aprenda! </p>
+                    </div>
+
+                    <div class="col-md-5 col-lg-4" id="social-midia">
+                        <div class="text-center text-md-end">
+                            <ul class="list-unstyled list-inline">
+                                <li>
+                                    <a href="#"><i class="bi bi-facebook fs-4"></i></a>
+                                    <a href="#"><i class="bi bi-instagram fs-4"></i></a>
+                                    <a href="#"><i class="bi bi-linkedin fs-4"></i></a>
+                                    <a href="#"><i class="bi bi-youtube fs-4"></i></a>
+                                    <a href="#"><i class="bi bi-whatsapp fs-4"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"

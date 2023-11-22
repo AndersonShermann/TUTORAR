@@ -86,7 +86,7 @@ public class UsuarioController {
     
 	@GetMapping("/{id}/perfil-usuario")
 	public ModelAndView perfil(@PathVariable Long id) {
-		ModelAndView modelAndView = new ModelAndView("usuario/perfilUsuario"); //necessario modificar o caminho
+		ModelAndView modelAndView = new ModelAndView("usuario/perfilUsuario"); //necessario modificar o caminho //modifiquei o nome do arquivo na view
  
 		Usuario usuario = usuarioRepository.getReferenceById(id);
 		modelAndView.addObject("usuario", usuario);

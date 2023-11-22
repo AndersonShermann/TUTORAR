@@ -63,7 +63,7 @@ public class AulaController {
 	//editar aulas
 	@GetMapping("/{id}/editar")
 	public ModelAndView editarAulas(@PathVariable Long id){
-		ModelAndView modelAndView = new ModelAndView("aulas/editar.html");
+		ModelAndView modelAndView = new ModelAndView("aulas/editarAula.html");
 		Aula aula = aulaRepository.getReferenceById(id);
 		modelAndView.addObject("aula", aula);
 		modelAndView.addObject("cat",Categoria_aula.values());
