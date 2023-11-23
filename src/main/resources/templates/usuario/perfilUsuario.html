@@ -90,6 +90,12 @@
                                         id="editarPerfil" data-bs-toggle="modal" data-bs-target="#editarModal"
                                         th:href="@{/{id}/editar-usuario (id=${usuario.id})}"><b>Editar Perfil</b></a>
                                 </div>
+                                
+                                <div>
+                                    <a href="#" class="btn btn-block text-white w-100 mb-2 text-nowrap bg-laranja"
+                                        id="registrarAula" 
+                                        th:href="@{/cadastroAulas}"><b>Cadastre sua aula!</b></a>
+                                </div>
 
                                 <div>
                                     <a th:href="@{/{id}/excluir-usuario (id=${usuario.id})}" href="#"
