@@ -33,13 +33,15 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active text-light fw-bolder" aria-current="page" href="index.html">Página
+                                <a class="nav-link active text-light fw-bolder" aria-current="page" href="/">Página
                                     inicial</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link  text-light fw-bolder" aria-current="page" href="/listarAulas">Aulas</a>
                             </li>
-                            
+                            <li class="nav-item">
+                                <a class="nav-link  text-light fw-bolder" aria-current="page" href="/cadastroAulas">Cadastrar Aula</a>
+                            </li>
 
                         </ul>
                         <form class="d-flex" role="search">
@@ -127,6 +129,9 @@
                                         </div>
                                     </div>
                                     <div class="card-footer border-0">
+										<a th:href="@{/{id}/editar (id=${aulas.id})}" class="btn btn-warning">
+											Editar
+										</a>
                                         <div class="text-right float-end">
 
                                             <a href="#" class="btn btn-sm fs-6 fw-bolder text-light"
