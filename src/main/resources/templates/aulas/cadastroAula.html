@@ -19,7 +19,7 @@
     <header>
       <nav class="navbar navbar-expand-lg bg-laranja">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="/">
             <img src="../../static/img/logo50px.png" alt=""></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -29,7 +29,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active text-light fw-bolder" aria-current="page" href="index.html">Página
+                <a class="nav-link active text-light fw-bolder" aria-current="page" href="/">Página
                     inicial</a>
             </li>
             <li class="nav-item">
@@ -152,7 +152,10 @@
 
                     <div class="card-footer border-0">
                       <button type="submit" class="btn text-white bg-laranja">Cadastrar Aula</button>
-                      <button type="submit" class="btn btn-default float-end border">Cancelar</button>
+                      <a href="/listarAulas" class="btn btn-default float-end border">
+						  Cancelar
+					  </a>
+                      <!--<button type="submit" class="btn btn-default float-end border">Cancelar</button>-->
                     </div>
 
                 </form>
